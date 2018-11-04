@@ -12,7 +12,7 @@ class MyFrame(wx.Frame):
         panel = wx.Panel(self)
         my_sizer = wx.BoxSizer(wx.VERTICAL)
         lbl = wx.StaticText(panel,
-        label="Hola, ingresa una prugunta:")
+        label="Hola, ingresa una pregunta:")
         my_sizer.Add(lbl, 0, wx.ALL, 5)
         self.txt = wx.TextCtrl(panel, style=wx.TE_PROCESS_ENTER,size=(400,30))
         self.txt.SetFocus()
@@ -33,6 +33,8 @@ class MyFrame(wx.Frame):
             print (answer)
         except:
             # Wikipedia
+            input = input.split(" ")
+            input = " ".join(input[2:])
             wikipedia.set_lang("es")
             print wikipedia.summary(input, sentences=5).encode("utf8")
 
